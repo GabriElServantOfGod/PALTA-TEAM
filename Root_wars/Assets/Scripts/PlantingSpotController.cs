@@ -35,7 +35,7 @@ public class PlantingSpotController : MonoBehaviour
             plantedGeometry.transform.parent = transform;
 
             // disable the trigger so player can't plant again
-            GetComponent<SphereCollider>().enabled = false;
+            GetComponent<BoxCollider>().enabled = false;
         }
     }
 }

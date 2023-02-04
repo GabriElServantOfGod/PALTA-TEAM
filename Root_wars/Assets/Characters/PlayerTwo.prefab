@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5860435710777680489
+--- !u!1 &4161645992539922155
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,49 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 201716238951286550}
-  - component: {fileID: 3612433963016954891}
-  - component: {fileID: 2529621371341312126}
-  - component: {fileID: 3069535759513344294}
-  - component: {fileID: 7740718785132510077}
-  - component: {fileID: 1797045092657220660}
+  - component: {fileID: 1691876580574138045}
+  - component: {fileID: 867687440423997453}
+  - component: {fileID: 9203004258922156976}
+  - component: {fileID: 9082874044774802470}
+  - component: {fileID: 3489642137053330950}
+  - component: {fileID: 8390812929918699818}
   m_Layer: 0
-  m_Name: PlayerOne
+  m_Name: PlayerTwo
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &201716238951286550
+--- !u!4 &1691876580574138045
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
+  m_GameObject: {fileID: 4161645992539922155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.0768095, y: 1.053, z: 0.46406376}
+  m_LocalPosition: {x: 4.5022697, y: 1.32, z: -4.0614333}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3612433963016954891
+--- !u!33 &867687440423997453
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &2529621371341312126
+  m_GameObject: {fileID: 4161645992539922155}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &9203004258922156976
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
+  m_GameObject: {fileID: 4161645992539922155}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,27 +86,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3069535759513344294
+--- !u!136 &9082874044774802470
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
+  m_GameObject: {fileID: 4161645992539922155}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
+  m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!54 &7740718785132510077
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &3489642137053330950
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
+  m_GameObject: {fileID: 4161645992539922155}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -116,18 +116,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 2
---- !u!114 &1797045092657220660
+--- !u!114 &8390812929918699818
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5860435710777680489}
+  m_GameObject: {fileID: 4161645992539922155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23a38ffa0dd54564faef9476160afac9, type: 3}
+  m_Script: {fileID: 11500000, guid: a911dfaefe7429b42966e148dcfe4095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 650
-  maxVelocity: 700
+  speed: 700
+  maxVelocity: 7500
   smoothing: 0.1
