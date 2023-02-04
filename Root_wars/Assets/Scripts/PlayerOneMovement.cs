@@ -9,41 +9,67 @@ public class PlayerOneMovement : MonoBehaviour
     [SerializeField] float smoothing = 0.1f; // smoothing factor for velocity updates
 
     private Rigidbody rb;
+    private Animator animator;
+    private float cooldown = 0f;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        animator = GetComponentInParent<Animator>();
     }
 
     void Update()
     {
         Vector3 movement = new Vector3();
 
-        if (Input.GetKey(KeyCode.W))
+        if (cooldown <= 0f)
         {
-            movement += Vector3.forward;
+            if (Input.GetKey(KeyCode.W))
+            {
+                movement += Vector3.forward;
+            }
+            if (Input.GetKey(KeyCode.A))
+            {
+                movement += Vector3.left;
+            }
+            if (Input.GetKey(KeyCode.S))
+            {
+                movement += Vector3.back;
+            }
+            if (Input.GetKey(KeyCode.D))
+            {
+                movement += Vector3.right;
+            }
         }
-        if (Input.GetKey(KeyCode.A))
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            movement += Vector3.left;
+            animator.SetBool("isPlanting", true);
+            cooldown = 2f;
         }
-        if (Input.GetKey(KeyCode.S))
+
+        if (cooldown > 0f)
         {
-            movement += Vector3.back;
+            cooldown -= Time.deltaTime;
+            movement = Vector3.zero;
         }
-        if (Input.GetKey(KeyCode.D))
+        else
         {
-            movement += Vector3.right;
+            animator.SetBool("isPlanting", false);
         }
 
         if (movement != Vector3.zero)
         {
+            transform.rotation = Quaternion.LookRotation(movement);
             movement = movement.normalized * speed * Time.deltaTime;
             rb.velocity = Vector3.ClampMagnitude(movement, maxVelocity);
+            animator.SetBool("IsWalking", true);
         }
         else
         {
             rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, smoothing);
+            animator.SetBool("IsWalking", false);
         }
     }
+
 }

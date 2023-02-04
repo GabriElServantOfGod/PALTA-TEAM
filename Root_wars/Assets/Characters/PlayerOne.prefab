@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3069535759513344294}
   - component: {fileID: 7740718785132510077}
   - component: {fileID: 1797045092657220660}
+  - component: {fileID: 1747512245219110702}
   m_Layer: 0
   m_Name: PlayerOne
   m_TagString: Player
@@ -131,3 +132,23 @@ MonoBehaviour:
   speed: 650
   maxVelocity: 700
   smoothing: 0.1
+--- !u!95 &1747512245219110702
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5860435710777680489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
