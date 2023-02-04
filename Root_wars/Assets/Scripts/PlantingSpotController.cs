@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class PlantingSpotController : MonoBehaviour
 {
-    [SerializeField] private bool triggerActive = false;
+    [SerializeField] GameObject newGeometry; // desired geometry of the object
 
-    public void OnTriggerEnter(Collider other)
+    private bool playerInTrigger; // flag to track if player is in trigger
+
+    void OnTriggerEnter(Collider other)
     {
+        // check if the other collider is the player
         if (other.CompareTag("Player"))
         {
-            triggerActive = true;
+            playerInTrigger = true;
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
+        // check if the other collider is the player
         if (other.CompareTag("Player"))
         {
-            triggerActive = false;
+            playerInTrigger = false;
         }
     }
 
-    private void Update()
+    void Update()
     {
-        if (triggerActive && Input.GetKeyDown(KeyCode.P))
+        if (playerInTrigger && Input.GetKeyDown(KeyCode.P))
         {
-            SomeCoolAction();
+            // change the geometry of the object to the desired geometry
+            GameObject plantedGeometry = Instantiate(newGeometry, transform.position, transform.rotation);
+            plantedGeometry.transform.parent = transform;
+
+            // disable the trigger so player can't plant again
+            GetComponent<SphereCollider>().enabled = false;
         }
     }
-
-    public void SomeCoolAction()
-    {
-        print("Occupied");
-    }
-
 }
