@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2786454950756166805}
   - component: {fileID: 4573615839772809679}
   - component: {fileID: 2881446910947936550}
+  - component: {fileID: 4173872594665507946}
   m_Layer: 0
   m_Name: Hueco_Prov
   m_TagString: Hueco
@@ -110,5 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad78b5ae7c5f424449d79c4fe07e4522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGeometryPlayerOne: {fileID: 2061513800293389993, guid: 01a8cffc16535784eb6fa6da65ccfbdb, type: 3}
-  newGeometryPlayerTwo: {fileID: 4040463242066742362, guid: 658a7b84353ef8341b1f95c9232ea6a1, type: 3}
+  newGeometryPlayerOne: {fileID: 4040463242066742362, guid: 658a7b84353ef8341b1f95c9232ea6a1, type: 3}
+  newGeometryPlayerTwo: {fileID: 2061513800293389993, guid: 01a8cffc16535784eb6fa6da65ccfbdb, type: 3}
+  HuecoNormal: {fileID: -8727524078645061399, guid: 564ff4a994ea7884e833ae400a0456a1, type: 3}
+  HuecoRoots: {fileID: 7776710382584095230, guid: 9aa910de397708149b79c7a3bdd8aab3, type: 3}
+--- !u!135 &4173872594665507946
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443793288039533888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0.000000014901161, y: -0.0000000037252903, z: 0.000000029802322}
