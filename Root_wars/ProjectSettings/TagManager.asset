@@ -7,6 +7,9 @@ TagManager:
   - Player2
   - PlayerOne
   - PlayerTwo
+  - child1
+  - child2
+  - Hueco
   layers:
   - Default
   - TransparentFX

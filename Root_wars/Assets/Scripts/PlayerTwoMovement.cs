@@ -42,7 +42,7 @@ public class PlayerTwoMovement : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Insert))
         {
             animator.SetBool("isPlanting", true);
             cooldown = 1f;
