@@ -45,7 +45,7 @@ public class PlayerOneMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             animator.SetBool("isPlanting", true);
-            cooldown = 2f;
+            cooldown = 1f;
         }
 
         if (cooldown > 0f)

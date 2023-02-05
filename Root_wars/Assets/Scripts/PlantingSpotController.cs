@@ -9,63 +9,85 @@ public class PlantingSpotController : MonoBehaviour
     [SerializeField] GameObject newGeometryPlayerOne; // desired geometry of the object for PlayerOne
     [SerializeField] GameObject newGeometryPlayerTwo; // desired geometry of the object for PlayerTwo
 
-    private bool playerInTrigger; // flag to track if a player is in trigger
+    private bool playerOneInTrigger; // flag to track if player one is in trigger
+    private bool playerTwoInTrigger; // flag to track if player two is in trigger
     private bool isPlanted; // flag to track if a plant is occupying the space
-    private Character characterInTrigger; // character in the trigger
 
     void OnTriggerEnter(Collider other)
     {
-        // check if the other collider is the player
+        // check if the other collider is player one
         if (other.CompareTag("PlayerOne"))
         {
-            playerInTrigger = true;
-            characterInTrigger = Character.PlayerOne;
+            playerOneInTrigger = true;
         }
+        // check if the other collider is player two
         else if (other.CompareTag("PlayerTwo"))
         {
-            playerInTrigger = true;
-            characterInTrigger = Character.PlayerTwo;
+            playerTwoInTrigger = true;
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        // check if the other collider is the player
-        if (other.CompareTag("PlayerOne") || other.CompareTag("PlayerTwo"))
+        // check if the other collider is player one
+        if (other.CompareTag("PlayerOne"))
         {
-            playerInTrigger = false;
+            playerOneInTrigger = false;
+        }
+        // check if the other collider is player two
+        else if (other.CompareTag("PlayerTwo"))
+        {
+            playerTwoInTrigger = false;
         }
     }
 
     void Update()
     {
-        if (playerInTrigger && Input.GetKeyDown(KeyCode.P) && !isPlanted)
+        if (playerOneInTrigger && Input.GetKeyDown(KeyCode.P) && !isPlanted)
         {
-            GameObject newGeometry;
-
-            // determine which new geometry to instantiate based on the character in the trigger
-            if (characterInTrigger == Character.PlayerOne)
-            {
-                newGeometry = newGeometryPlayerOne;
-            }
-            else
-            {
-                newGeometry = newGeometryPlayerTwo;
-            }
-
-            // change the geometry of the object to the desired geometry
-            GameObject plantedGeometry = Instantiate(newGeometry, transform.position, transform.rotation);
-            plantedGeometry.transform.parent = transform;
-
-            // set the isPlanted flag to true
-            isPlanted = true;
+            // if player one is in trigger and presses the P key, plant their plant
+            PlantPlant(Character.PlayerOne);
         }
 
-        if (playerInTrigger && Input.GetKeyDown(KeyCode.C) && isPlanted)
+        if (playerTwoInTrigger && Input.GetKeyDown(KeyCode.Insert) && !isPlanted)
         {
-            // remove the plant
+            // if player two is in trigger and presses the Insert key, plant their plant
+            PlantPlant(Character.PlayerTwo);
+        }
+
+        if (playerOneInTrigger && Input.GetKeyDown(KeyCode.C) && isPlanted)
+        {
+            // if player one is in trigger and presses the C key, remove the plant
             RemovePlant();
         }
+
+        if (playerTwoInTrigger && Input.GetKeyDown(KeyCode.Period) && isPlanted)
+        {
+            // if player two is in trigger and presses the Period key, remove the plant
+            RemovePlant();
+        }
+    }
+
+    public void PlantPlant(Character character)
+    {
+        GameObject newGeometry;
+
+        // determine which new geometry to instantiate based on the character
+        if (character == Character.PlayerOne)
+        {
+            newGeometry = newGeometryPlayerOne;
+        }
+        else
+        {
+            newGeometry = newGeometryPlayerTwo;
+        }
+
+        // change the geometry of the object to the desired geometry
+        GameObject plantedGeometry = Instantiate(newGeometry, transform.position, transform.rotation);
+        plantedGeometry.transform.parent = transform;
+
+        // set the isPlanted flag to true
+        isPlanted = true;
     }
 
     public void RemovePlant()
