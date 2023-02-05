@@ -127,6 +127,11 @@ public class PlantingSpotController : MonoBehaviour
         isPlanted = true;
 
         rootCollider.radius = 3f;
+
+       /* void OnTriggerEnter()
+        {
+        
+        }*/
     }
 
     public void RemovePlant()
